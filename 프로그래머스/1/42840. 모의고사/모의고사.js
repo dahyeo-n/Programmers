@@ -9,9 +9,7 @@ function solution(answers) {
     // 각 패턴에 따라 점수 계산
     answers.forEach((answer, i) => {
         patterns.forEach((pattern, idx) => {
-            if (pattern[i % pattern.length] === answer) {
-                scores[idx]++;
-            }
+            if (pattern[i % pattern.length] === answer) scores[idx]++;
         });
     });
     
