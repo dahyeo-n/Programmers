@@ -13,9 +13,9 @@ function isPrime(x) {
 
 function solution(n) {
     let answer = 0;
-    if (n >= 2) answer++; // 2는 유일한 짝수 소수이므로 따로 처리
+    if (n === 2) return 1;
 
-    for (let i = 3; i <= n; i += 2) { // 3부터 홀수만 검사
+    for (let i = 2; i <= n; i++) {
         if (isPrime(i)) answer++;
     }
     
