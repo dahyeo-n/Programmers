@@ -1,12 +1,18 @@
-function solution (people, limit) {
-    let answer = 0;
-    people.sort ((a, b) => b - a)
-    
-    for (let i = 0, j = people.length - 1; i <= j; i++) {
-        if (people[i] + people [j] <= limit)
-            j--
-        answer ++
+function solution(people, limit) {
+  let count = 0;
+  let leftIdx = 0;
+  let rightIdx = people.length - 1;
+
+  people.sort((a, b) => a - b);
+
+  while (leftIdx <= rightIdx) {
+    if (people[leftIdx] + people[rightIdx] <= limit) {
+      leftIdx++;
     }
-    
-    return answer;
+
+    rightIdx--;
+    count++;
+  }
+
+  return count;
 }
