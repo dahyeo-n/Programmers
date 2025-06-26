@@ -1,10 +1,18 @@
 function solution(food) {
-    let res = '';
-    for (let i = 1; i < food.length; i++) { // 2번째 요소부터 반복
-        // food[i] 값을 2로 나눈 몫만큼 인덱스 i를 문자열로 변환하여 반복한 뒤 res에 추가
-        res += String(i).repeat(Math.floor(food[i] / 2));
+    let foodPlacement = "0"; // 가운데 물 1개
+
+    for (let i = food.length - 1; i > 0; i--) {
+        let currFood = food[i];
+
+        // 홀수면 -1 해서 짝수로 만듦
+        if (currFood % 2 === 1) currFood -= 1;
+
+        // 절반만큼 왼쪽과 오른쪽 양끝에 배치
+        const halfFood = currFood / 2;
+        // repeat(): 문자열을 주어진 횟수만큼 반복해 붙인 새로운 문자열 반환
+        const foodStr = String(i).repeat(halfFood);
+        foodPlacement = foodStr + foodPlacement + foodStr;
     }
-    // res를 배열로 변환한 뒤 ([...res]),
-    // 뒤집고 (reverse()), 다시 문자열로 합쳐서 (join('')) res 뒤에 붙임
-    return res + '0' + [...res].reverse().join('');
+
+    return foodPlacement;
 }
