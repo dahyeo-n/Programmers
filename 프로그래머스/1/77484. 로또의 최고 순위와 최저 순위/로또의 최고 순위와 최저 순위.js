@@ -14,10 +14,8 @@ function solution(lottos, win_nums) {
             minMaxNums[0]++;
         }
     }
-    
-    console.log(minMaxNums);
-    
-    // 4. 1&2번째 경우의 등수 계산
+        
+    // 1&2번째 경우의 등수 계산
     for (let i = 0; i < minMaxNums.length; i++) {
         switch (minMaxNums[i]) {
             case 6: result[i] = 1; break;
